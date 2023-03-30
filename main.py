@@ -2,9 +2,9 @@
 import datetime
 from mastodon import Mastodon
 
+
 ### Mastodon
-mastodon_address = ''
-mastodon_access_token = ''
+exec(compile(source=open('secret.py').read(),filename='secret.py', mode='exec'))
 masto = Mastodon(access_token = mastodon_access_token, api_base_url = mastodon_address)
 statuses_out = []
 output_file = 'index.html'
