@@ -55,9 +55,11 @@ def run_thing():
         statuses = masto.fetch_next(statuses)
         template_statuses(statuses)
         ### testing
+        '''
         if len(statuses_for_templating) > 10:
             print(statuses_for_templating)
             break
+        '''
 
     timestamp_before_rendering = datetime.datetime.now()
     rendered_html = template.render(
