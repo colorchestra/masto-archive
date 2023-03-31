@@ -5,7 +5,10 @@ from jinja2 import Environment, FileSystemLoader
 
 ### Mastodon
 exec(compile(source=open('secret.py').read(),filename='secret.py', mode='exec'))
-masto = Mastodon(access_token = mastodon_access_token, api_base_url = mastodon_address)
+masto = Mastodon(
+    access_token = mastodon_access_token,
+    api_base_url = mastodon_address,
+    ratelimit_method='wait')
 statuses_for_templating = []
 output_file = 'index.html'
 timestamp_at_start = datetime.datetime.now()
