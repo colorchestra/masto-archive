@@ -32,7 +32,7 @@
 			{{ option.title }}: {{ option.votes_count }}<br />
 			{% endfor %}
 		{% endif %}
-		<small>⮌ {{status.replies_count or 0}} ★ {{status.favourites_count or 0}} ⭯ {{status.reblogs_count or 0}}  </small>
+		<small>↩️ {{status.replies_count or 0}} ⭐ {{status.favourites_count or 0}} 🔄 {{status.reblogs_count or 0}}</small>
 		{% if status.media_attachments is defined %}
 			🖼️
 		{% endif %}
