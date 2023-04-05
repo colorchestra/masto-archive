@@ -16,7 +16,9 @@ timestamp_at_start = datetime.datetime.now()
 
 env = Environment(
     loader = FileSystemLoader("templates"),
-    autoescape=False
+    autoescape=False,
+    trim_blocks=True,
+    lstrip_blocks=True
 )
 template = env.get_template("masto-template.html")
 

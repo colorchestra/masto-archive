@@ -13,33 +13,30 @@
 	<title>{{ my_name }}'s Fedi archive</title>
 </head>
 <body>
-	<h2>{{ my_name }}'s Fedi archive</h2>
-    <b>Toots here: {{ statuses_total }}; generation date: {{ generated_time }}; duration of API calls: {{ creation_duration }}</b><br />
-	User <a href={{ me['url'] }}>{{ me['username'] }}</a> with id {{ me['id'] }} has written {{ me['statuses_count'] }} total statuses since {{ me['created_at'] }}.<br /><br />
-    {% for status in statuses_out %}
-	<div class="toot">
-		{% if status.spoiler_text is defined and status.spoiler_text|length %}
-			<em>{{ status.spoiler_text }}</em>
-		{% endif %}
-		{% if status.content is defined and status.content|length %}
-			{{ status.content }}
-		{% else %}
-			<p><em>Toot has no text content</em></p>
-		{% endif %}
-		{% if status.poll is defined %}
-		Poll:
-			{% for option in status.poll.options %}
-			{{ option.title }}: {{ option.votes_count }}<br />
-			{% endfor %}
-		{% endif %}
-		<small>↩️ {{status.replies_count or 0}} ⭐ {{status.favourites_count or 0}} 🔄 {{status.reblogs_count or 0}}</small>
-		{% if status.media_attachments is defined %}
-			🖼️
-		{% endif %}
-		<br />
-		<small><a href='{{status.url}}'> {{status.created_at}}</a></small>
-			</div>
-	{% endfor %}
-
+<h2>{{ my_name }}'s Fedi archive</h2>
+<b>Toots here: {{ statuses_total }}; generation date: {{ generated_time }}; duration of API calls: {{ creation_duration }}</b><br />
+User <a href={{ me['url'] }}>{{ me['username'] }}</a> with id {{ me['id'] }} has written {{ me['statuses_count'] }} total statuses since {{ me['created_at'] }}.<br /><br />
+{% for status in statuses_out %}
+<div>
+	{% if status.spoiler_text is defined and status.spoiler_text|length %}	
+	<em>CW: {{ status.spoiler_text }}</em>
+	{% endif %}
+	{% if status.content is defined and status.content|length %}
+	{{ status.content }}
+	{% else %}
+	<p><em>Toot has no text content</em></p>
+	{% endif %}
+	{% if status.poll is defined %}
+	<em>Poll:</em>
+		<ul>
+		{% for option in status.poll.options %}
+		<li>{{ option.title }}: {{ option.votes_count }}</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+	<small>↩️ {{status.replies_count or 0}} ⭐ {{status.favourites_count or 0}} 🔄 {{status.reblogs_count or 0}} <a href='{{status.url}}'>{{status.created_at}}</a></small>
+	{% if status.media_attachments is defined %}🖼️{% endif %}
+</div>
+{% endfor %}
 </body>
 </html>
