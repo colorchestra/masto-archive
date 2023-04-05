@@ -13,7 +13,7 @@
 	<title>{{ my_name }}'s Fedi archive</title>
 </head>
 <body>
-<h2>{{ my_name }}'s Fedi archive</h2>
+<h2>{{ my_name }}'s Fedi posts</h2>
 Toots here: <b>{{ statuses_total }}</b>; generation date: <b>{{ generated_time }}</b>; duration of API calls: <b>{{ creation_duration }}</b><br />
 User <a href={{ me['url'] }}>{{ me['username'] }}</a> with id {{ me['id'] }} has written {{ me['statuses_count'] }} total statuses since {{ me['created_at_formatted'] }}.<br /><br />
 {% for status in statuses_out %}
