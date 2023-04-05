@@ -15,7 +15,7 @@
 <body>
 <h2>{{ my_name }}'s Fedi posts</h2>
 Toots here: <b>{{ statuses_total }}</b>; generation date: <b>{{ generated_time }}</b>; duration of API calls: <b>{{ creation_duration }}</b><br />
-User <a href={{ me['url'] }}>{{ me['username'] }}</a> with id {{ me['id'] }} has written {{ me['statuses_count'] }} total statuses since {{ me['created_at_formatted'] }}.<br /><br />
+User <a href={{ me['url'] }}>{{ me['username'] }}</a> with ID <b>{{ me['id'] }}</b> has written <b>{{ me['statuses_count'] }}</b> total statuses since <b>{{ me['created_at_formatted'] }}</b>.<br /><br />
 {% for status in statuses_out %}
 <div>
 	{% if status.spoiler_text is defined and status.spoiler_text|length %}	
