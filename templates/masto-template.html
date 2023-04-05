@@ -14,8 +14,8 @@
 </head>
 <body>
 <h2>{{ my_name }}'s Fedi archive</h2>
-<b>Toots here: {{ statuses_total }}; generation date: {{ generated_time }}; duration of API calls: {{ creation_duration }}</b><br />
-User <a href={{ me['url'] }}>{{ me['username'] }}</a> with id {{ me['id'] }} has written {{ me['statuses_count'] }} total statuses since {{ me['created_at'] }}.<br /><br />
+Toots here: <b>{{ statuses_total }}</b>; generation date: <b>{{ generated_time }}</b>; duration of API calls: <b>{{ creation_duration }}</b><br />
+User <a href={{ me['url'] }}>{{ me['username'] }}</a> with id {{ me['id'] }} has written {{ me['statuses_count'] }} total statuses since {{ me['created_at_formatted'] }}.<br /><br />
 {% for status in statuses_out %}
 <div>
 	{% if status.spoiler_text is defined and status.spoiler_text|length %}	
