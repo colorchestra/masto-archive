@@ -5,7 +5,7 @@ from jinja2 import Environment, FileSystemLoader
 
 
 output_file = 'index.html'
-testing = False
+debug = False
 
 exec(compile(source=open('secret.py').read(),filename='secret.py', mode='exec'))
 masto = Mastodon(
@@ -63,7 +63,7 @@ def run_thing():
         statuses = masto.fetch_next(statuses)
         template_statuses(statuses)
 
-        if testing:
+        if debug:
             if len(statuses_for_templating) > 10:
                 print(statuses_for_templating)
                 break
