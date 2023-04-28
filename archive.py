@@ -5,7 +5,7 @@ from jinja2 import Environment, FileSystemLoader
 
 
 output_file = 'index.html'
-debug = True
+debug = False
 
 exec(compile(source=open('secret.py').read(),filename='secret.py', mode='exec'))
 masto = Mastodon(
