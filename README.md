@@ -1,6 +1,10 @@
 # masto-archiver
 This script solves the pressing problem of accidentally making the same banger shitpost twice. If you run this, say, once a day, you can Ctrl+f through your previous posts to avoid that embarassing situation.
 
+![](./example.png)
+
+Here's a demo page which showcases the results: https://masto-archive-demo.morph.sh
+
 ## Dependencies
 You will need `Mastodon.py` and `jinja2`. Install them using pip: `pip install Mastodon.py jinja2`
 
@@ -23,4 +27,5 @@ Fill in your data in `secret.py` (most importantly the instance address and a Ma
 - [x] Change to HTML Templating engine
 - [x] Secrets File
 - [x] Usage Instructions
-- [ ] Screenshot for Github
+- [x] Screenshot for Github
+- [x] Demo page
