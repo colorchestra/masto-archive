@@ -47,7 +47,7 @@ def template_statuses(statuses):
         if one_status['media_attachments']:
             new_status['media_attachments'] = True
 
-        # this one_status does too because we want to format the time string
+        # this one does too because we want to format the time string
         if one_status['created_at']:
             new_status['created_at'] = one_status['created_at'].strftime('%Y-%m-%d %H:%M:%S')
 
