@@ -3,16 +3,22 @@ This script solves the pressing problem of accidentally making the same banger s
 
 ![](./example.png)
 
+More precisely, this script gets all of your Mastodon posts from your instance's API and displays them on an HTML page. On most Mastodon instances, full-text search is not supported, so there's no easy way to search through your posts.
+
 Here's a demo page which showcases the results: https://masto-archive-demo.morph.sh
 
-## Dependencies
+## Dependencies and Deployment
 You will need `Mastodon.py` and `jinja2`. Install them using pip: `pip install Mastodon.py jinja2`
+
+For convenient usage, you may want to automate running this script every so often (once a day or every few days should be enough) and copying the output to a webserver where you can view it.
 
 ## Usage
 Fill in your data in `secret.py` (most importantly the instance address and a Mastodon access token that has the `read:accounts` and `read:statuses` scopes set), then run `archive.py`.
 
+To search through your posts, just use your web browser's "Find on Page" feature (Ctrl+F takes you there usually) and use the keywords that you remember from the post you're looking for. If you remember the rough date of the post you need to find, you can search for something like "2022-10" to get all posts from that month, because the dates adhere to ISO 8601.
+
 ## Warning!
-- The output of this thing includes private and unlisted toots by default so make sure to put the page in a place where only you can see it.
+- The output of this thing includes only public and unlisted toots by default (meaning, the same posts anyone can see by browsing your profile). In `secret.py`, you can configure it to also display private or direct toots, which should of course be kept privat, so if you enable that, make sure to put the page in a place where only you can see it.
 - This script is in no way optimized for speed. It can take a long time depending on the Mastodon server and the number of toots, especially if it runs into rate limits.
 
 ## To Do
@@ -29,3 +35,4 @@ Fill in your data in `secret.py` (most importantly the instance address and a Ma
 - [x] Usage Instructions
 - [x] Screenshot for Github
 - [x] Demo page
+- [ ] Client-side search?
