@@ -21,7 +21,7 @@ Simply run `python archive.py`. The output will be written to a file named `inde
 To search through your posts, just open index.html and use your web browser's "Find on Page" feature (Ctrl+F takes you there usually) to search with the keywords that you remember from the post you're looking for. If you remember the rough date of the post you need to find, you can search for something like "2022-10" to get all posts from that month, because the dates adhere to ISO 8601.
 
 ## Warning!
-- The output of this thing includes only public and unlisted toots by default (meaning, the same posts anyone can see by browsing your profile). In `secret.py`, you can configure it to also display private or direct toots, which should of course be kept privat, so if you enable that, make sure to put the page in a place where only you can see it.
+- The output of this thing includes only public and unlisted toots by default (meaning, the same posts anyone can see by browsing your profile). In `secret.py`, you can configure it to also display private or direct toots, which should of course be kept private, so if you enable that, make sure to put the page in a place where only you can see it.
 - This script is in no way optimized for speed. It can take a long time depending on the Mastodon server and the number of toots, especially if it runs into rate limits.
 
 ## To Do
