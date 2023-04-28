@@ -5,7 +5,7 @@ from jinja2 import Environment, FileSystemLoader
 
 
 output_file = 'index.html'
-debug = False
+debug = True
 
 exec(compile(source=open('secret.py').read(),filename='secret.py', mode='exec'))
 masto = Mastodon(
@@ -23,11 +23,11 @@ jinja_env = Environment(
 template = jinja_env.get_template("masto-template.html")
 
 def template_statuses(statuses):
-    for one in statuses:
+    for one_status in statuses:
         if (
-            one.reblog or
-            one.visibility == "direct"
-            ):
+            visibility_options[one_status.visibility] == False or
+            one_status.reblog
+        ):
             continue
 
         new_status = {}
@@ -40,16 +40,16 @@ def template_statuses(statuses):
             'reblogs_count',
             'url',
             ]:
-            if one[attribute]:
-                new_status[attribute] = one[attribute]
+            if one_status[attribute]:
+                new_status[attribute] = one_status[attribute]
 
         # this needs an extrawurst because we don't want to copy the entire attachments dict
-        if one['media_attachments']:
+        if one_status['media_attachments']:
             new_status['media_attachments'] = True
 
-        # this one does too because we want to format the time string
-        if one['created_at']:
-            new_status['created_at'] = one['created_at'].strftime('%Y-%m-%d %H:%M:%S')
+        # this one_status does too because we want to format the time string
+        if one_status['created_at']:
+            new_status['created_at'] = one_status['created_at'].strftime('%Y-%m-%d %H:%M:%S')
 
         statuses_for_templating.append(new_status)
 
